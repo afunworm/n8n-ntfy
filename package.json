@@ -1,0 +1,65 @@
+{
+	"name": "@afunworm/n8n-nodes-ntfy",
+	"version": "1.1.7",
+	"description": "Send messages to ntfy",
+	"keywords": [
+		"n8n-community-node-package"
+	],
+	"license": "MIT",
+	"homepage": "",
+	"author": {
+		"name": "Huy",
+		"email": "afunworm@gmail.com"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/afunworm/n8n-ntfy.git"
+	},
+	"engines": {
+		"node": ">=18.10",
+		"pnpm": ">=9.1"
+	},
+	"packageManager": "pnpm@9.1.4",
+	"main": "index.js",
+	"scripts": {
+		"build": "tsc && gulp build:icons",
+		"dev": "tsc --watch",
+		"format": "prettier nodes credentials --write",
+		"lint": "eslint nodes credentials package.json",
+		"lintfix": "eslint nodes credentials package.json --fix",
+		"prepublishOnlyDisabled": "pnpm build && pnpm lint -c .eslintrc.prepublish.js nodes credentials package.json",
+		"prepublishOnly": "pnpm build",
+		"version-patch": "npm version patch --no-git-tag-version",
+		"version-minor": "npm version minor --no-git-tag-version",
+		"version-major": "npm version major --no-git-tag-version"
+	},
+	"files": [
+		"dist"
+	],
+	"n8n": {
+		"n8nNodesApiVersion": 1,
+		"credentials": [
+			"dist/credentials/ntfyApi.credentials.js"
+		],
+		"nodes": [
+			"dist/nodes/ntfy/ntfy.node.js",
+			"dist/nodes/ntfy/NtfyTrigger.node.js"
+		]
+	},
+	"devDependencies": {
+		"@types/request": "^2.48.12",
+		"@typescript-eslint/parser": "^7.15.0",
+		"eslint": "^8.56.0",
+		"eslint-plugin-n8n-nodes-base": "^1.16.1",
+		"gulp": "^5.0.0",
+		"n8n-workflow": "*",
+		"prettier": "^3.3.2",
+		"typescript": "^5.5.3"
+	},
+	"peerDependencies": {
+		"n8n-workflow": "*"
+	},
+	"dependencies": {
+		"eventsource": "^3.0.2"
+	}
+}
