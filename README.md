@@ -1,4 +1,6 @@
-### n8n-nodes-ntfy
+### @afunworm/n8n-nodes-ntfy
+
+The package name to install in the community node is: @afunworm/n8n-nodes-ntfy
 
 Includes the followings:
 
